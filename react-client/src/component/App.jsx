@@ -18,7 +18,7 @@ class App extends React.Component {
   }
 
   getRequest() {
-    Axios.get('/bechampions/productspecdetail/id')
+    Axios.get('/api/bechampions/productspecdetail/id')
       .then((details) => {
         this.setState({
           DetailSpecs: details.data[0]

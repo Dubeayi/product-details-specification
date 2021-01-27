@@ -399,7 +399,7 @@ margin-bottom: 1.8%;
 }
 
 .SocialMediaModalGetThisImageAndItemName:hover .SocialMediaModalGetThisImageFrame {
-  border: solid
+  border-color: black
 }
 
 .SocialMediaModalGetThisImageAndItemName:hover .SocialMediaModalGetThisItemName {
@@ -413,6 +413,9 @@ margin-bottom: 1.8%;
   display: flex;
   vertical-align: middle;
   cursor: pointer;
+  border:solid;
+  border-color: white;
+  border-width: thin;
 }
 
 .SocialMediaModalGetThisImage {
@@ -420,6 +423,7 @@ margin-bottom: 1.8%;
   transition: transform .5s ease-in-out;
   width: 100%;
   height: 100%;
+  border: white
 }
 .SocialMediaModalGetThisItemNameFrame {
   width: 100%;

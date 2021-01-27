@@ -91,7 +91,7 @@ class SocialMedia extends React.Component {
   }
 
   getRequest() {
-    Axios.get('/bechampions/socialmedia/id')
+    Axios.get('/api/bechampions/socialmedia/id')
     .then((socialData) => {
       this.setState({
         data: socialData.data.slice(0, 10)
