@@ -8,7 +8,7 @@ const SocialMediaImageFrame = (props) => {
       <div className='SocialMediaCarouselFrame'>
         {props.data.map((imageLink, index) => {
           return (
-            <SocialMediaImageFrameImage imageLink={imageLink} transform={props.transform} openClickModal={props.openClickModal}/>
+            <SocialMediaImageFrameImage imageLink={imageLink.InstagramImage} Likes={imageLink.Likes} transform={props.transform} openClickModal={props.openClickModal} hoverIndex={props.hoverIndex} index={index} key={index}/>
           )
         })}
       </div>

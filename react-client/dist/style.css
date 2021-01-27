@@ -1,9 +1,18 @@
 
 
+.BigContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 .detailSpecBox {
   box-sizing: content-box;
   align-items: center;
   margin-left: 18.85%;
+  width: 100%;
 }
 
 .detailBox {
@@ -12,21 +21,34 @@
   border-color: #f2f5f7;
   border: solid;
   line-height: 1.9;
-  width: 37%;
-  font-family: Arial, Helvetica, sans-serif;
+  width: 30%;
+  font-family: "Knockout HTF49-Liteweight";
   color: #f2f5f7;
   text-align: center;
   text-transform: uppercase;
+  cursor: pointer;
+  padding-top: 6px;
   }
 
 .detailText {
-  font-size: 18px;
-  font-weight: 700;
-  color: black;
-  letter-spacing: -2px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1%;
+  color: rgb(112, 112, 112);
+  letter-spacing: 0;
+  text-indent: 0;
+  font-family: "Knockout HTF49-Liteweight";
 }
 
-.detailText:hover {
+.detailText:active {
+  color: black
+}
+
+.detailText:focus {
+  color: black
+}
+
+.detailBox:hover .detailText{
   color: red;
   cursor: pointer;
 }
@@ -41,21 +63,35 @@
   border-color: #f2f5f7;
   border: solid;
   line-height: 1.9;
-  width: 37%;
-  font-family: Arial, Helvetica, sans-serif;
+  width: 30%;
+  font-family: "Knockout HTF49-Liteweight";
   color: #f2f5f7;
   text-align: center;
-  text-transform: uppercase
+  text-transform: uppercase;
+  cursor: pointer;
+  padding-top: 6px;
 }
 
 .specText {
-  font-size: 18px;
-  font-weight: 700;
-  color: black;
-  letter-spacing: -1px;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1%;
+  color: rgb(112, 112, 112);
+  letter-spacing: 0;
+  text-indent: 0;
+  font-family: "Knockout HTF49-Liteweight";
 }
 
-.specText:hover {
+.specText:active {
+  color: black
+}
+
+.specText:focus {
+  color: black
+}
+
+
+.specBox:hover .specText{
   color: red;
   cursor: pointer;
 }
@@ -66,69 +102,127 @@
 
 .detailParagraph {
   clear: both;
-  width: 100%;
-  text-align: center;
-  padding-top: 100px;
-  font-family: Arial, Helvetica, sans-serif;
+  width: 40%;
+  padding-left: 30%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  font-family: "Knockout HTF49-Liteweight";
+  line-height: 130%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1rem;
 }
 
 .specBulletpoints {
+  display: flex;
+  flex-direction: column;
   clear: both;
-  width: 100%;
-  text-align: center;
-  padding-top: 100px;
-  font-family: Arial, Helvetica, sans-serif;
+  width: 80%;
+  margin-left: 30%;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-family: "Knockout HTF49-Liteweight";
+  border-bottom: black;
+  line-height: 130%;
 }
 
+.separatingBorder {
+border: solid;
+border-width: thin;
+border-color: rgb(243, 245, 247);
+width: 59%;
+margin-left: 20%;
+margin-bottom: 1.8%;
+}
 
 .SocialMediaContainer {
   display: flex;
   flex-wrap: nowrap;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  align-items: stretch;
   width: 1775px;
   height: 660px;
-  background-color: rgb(239, 239, 239);
+  background-color: rgb(242, 239, 236);
+}
+
+.SocialMediaContainerTopHalf {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+  background-color: rgb(242, 239, 236);
+  font-family: "Knockout HTF49-Liteweight";
+  font-size: 20px;
+}
+
+.InstagramHeader {
+  text-align: center;
+  border-style: none;
+  border-width: 1px;
+  border-radius: 0px;
+  margin-top: 2%;
+  margin-bottom: 0;
+  font-family: "Knockout HTF49-Liteweight";
+  font-size: 40px;
+}
+
+.SocialMediaContainerBottomHalf {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  height: 80%;
+  background-color: rgb(242, 239, 236);
 }
 
 .SocialMediaCarouselFrame {
   display: flex;
   flex-wrap: nowrap;
-  overflow-x: hidden;
+  overflow: hidden;
   flex-direction: row;
   align-items: center;
-  height: 62%;
+  height: 80%;
 }
 
 .SocialMediaLeftArrow {
  display: inline-block;
- height: 62%;
+ height: 80%;
  width: 2.3%;
  left: 1%;
+ cursor: pointer;
+ border: none;
 }
 
 .SocialMediaRightArrow {
   display: inline-block;
-  height: 62%;
+  height: 80%;
   width: 2.3%;
   right: 1%;
+  cursor: pointer;
+  border: none;
 }
 
 .SocialMediaImageFrame {
   flex: 0 0 auto;
   /* display: absolute; */
   vertical-align: middle;
-  border: solid;
-  height: 99%;
-  width: 23.65%;
+  border: none;
+  height: 100%;
+  width: 24%;
   margin: .5%;
   overflow: hidden;
   transition: transform .6s ease-in-out;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  cursor: pointer
 }
 
 .SocialMediaImage {
@@ -142,7 +236,8 @@
 
 .ShopNow {
   font-size: 135%;
-  margin-bottom: -15%
+  margin-bottom: -15%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .PlusSign {
@@ -166,6 +261,7 @@
 .HeartLikes {
   margin-top: 53%;
   margin-right: 5%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .SocialMediaImageOverlay {
@@ -176,7 +272,7 @@
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  overflow: visible; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
   color: white;
@@ -184,19 +280,20 @@
   justify-content: center;
   align-items: center;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .SocialMediaModal {
-                    /* Hidden by default */
+  display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 5; /* Sit on top */
   padding-top: 100px; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: hidden; /* Enable scroll if needed, hidden to hide*/
-  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgb(0,0,0, 0.79); /* Fallback color */
   background-color: rgba(0,0,0,0.79); /* Black w/ opacity */
 }
 
@@ -216,7 +313,6 @@
   border: solid;
   height: 100%;
   flex-basis: 62%;
-  background-color: blue;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -233,6 +329,7 @@
   border: none;
   margin-left: 30%;
   background-color: rgb(215, 215, 215, 0);
+  cursor: pointer;
 }
 
 .SocialMediaModalCarouselLArrow {
@@ -240,6 +337,7 @@
   border: none;
   margin-right: 30%;
   background-color: rgb(215, 215, 215, 0);
+  cursor: pointer;
 }
 
 .SocialMediaModalWhitespaceContainer {
@@ -263,6 +361,7 @@
   flex-direction: row;
   color: grey;
   padding-bottom: 5%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .SocialMediaModalGetThisCarousel {
@@ -284,16 +383,36 @@
   flex-basis: 5%;
   margin-bottom: 3%;
   margin-top: 3%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.SocialMediaModalGetThisImageFrame {
-  flex-basis: 70%;
+
+.SocialMediaModalGetThisImageAndItemName {
+  flex-basis: 100%;
   width: 80%;
-  border: solid;
   overflow: hidden;
   transition: transform .3s ease-in-out;
   display: flex;
   vertical-align: middle;
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.SocialMediaModalGetThisImageAndItemName:hover .SocialMediaModalGetThisImageFrame {
+  border: solid
+}
+
+.SocialMediaModalGetThisImageAndItemName:hover .SocialMediaModalGetThisItemName {
+  text-decoration: underline;
+}
+
+.SocialMediaModalGetThisImageFrame {
+  width: 97%;
+  overflow: hidden;
+  transition: transform .3s ease-in-out;
+  display: flex;
+  vertical-align: middle;
+  cursor: pointer;
 }
 
 .SocialMediaModalGetThisImage {
@@ -302,22 +421,40 @@
   width: 100%;
   height: 100%;
 }
+.SocialMediaModalGetThisItemNameFrame {
+  width: 100%;
+  overflow: hidden;
+  transition: transform .3s ease-in-out;
+  display: flex;
+  vertical-align: middle;
+  cursor: pointer;
+}
 
 .SocialMediaModalGetThisItemName {
-  flex-basis: 15%;
-  margin-top: 3%;
+  scroll-behavior: smooth;
+  transition: transform .5s ease-in-out;
+  width: 100%;
+  flex-basis: auto;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding-right: 80%;
+  padding-left: 40%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .SocialMediaModalGetThisLeft {
   background-color: white;
   border: none;
   margin-left: 2%;
+  cursor: pointer;
 }
 
 .SocialMediaModalGetThisRight {
   background-color: white;
   border: none;
   margin-right: 2%;
+  cursor: pointer;
 }
 
 .SocialMediaModalSMLinks {
@@ -333,6 +470,7 @@
   z-index: 10;
   margin-right: 6%;
   margin-top: 5%;
+  cursor: pointer;
 }
 
 .FB {
@@ -352,6 +490,7 @@
   justify-content: center;
   margin: 3px;
   margin-left: 12px;
+  cursor: pointer;
 }
 
 .Twitter {
@@ -369,7 +508,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3px
+  margin: 3px;
+  cursor: pointer;
 }
 
 .Pinterest {
@@ -387,5 +527,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 3px
+  margin: 3px;
+  cursor: pointer;
 }

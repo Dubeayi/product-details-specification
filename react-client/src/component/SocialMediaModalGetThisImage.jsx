@@ -1,14 +1,28 @@
 import React from 'react'
 
-const SocialMediaGetThisImageFrame = (props) => {
+const SocialMediaGetThisImageFrame = ({data, transform}) => {
 
   return (
-    <div className="SocialMediaModalGetThisImageFrame">
-      {props.data.map((imageGetThisLink) => {
-        return (
-          <img className='SocialMediaModalGetThisImage' src={imageGetThisLink} style={{transform: props.transform}}/>
+    <div className="SocialMediaModalGetThisImageAndItemName" >
+      <div className="SocialMediaModalGetThisImageFrame">
+        {(data === undefined) ? '' : data.map((imageGetThisLink) => {
+          return (
+            <img className='SocialMediaModalGetThisImage' src={imageGetThisLink} style={{transform}}/>
+
+          )
+        })}
+      </div>
+      <div className="SocialMediaModalGetThisItemNameFrame">
+
+      {(data === undefined) ? '' : data.map((imageGetThisLink) => {
+          return (
+            <>
+        <div className="SocialMediaModalGetThisItemName" style={{transform}}>Clothes</div>
+            </>
         )
       })}
+
+      </div>
     </div>
   )
 }

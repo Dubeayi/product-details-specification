@@ -6,58 +6,43 @@ class SocialMediaModal extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: data,
       rightVisibility: {visibility: "hidden"},
       leftVisibility: {visibility: "hidden"},
       imageIndex: 0,
-      bigImageIndex: 0,
       position: 0,
       transform: "translate3d(0%, 0px, 0px)"
     }
-    this.mountCarousel = this.mountCarousel.bind(this)
+
     this.slideCarouselRight = this.slideCarouselRight.bind(this)
     this.slideCarouselLeft = this.slideCarouselLeft.bind(this)
   }
 
-  componentDidMount() {
-    this.mountCarousel()
-  }
-
-  mountCarousel() {
-    if(this.state.data.length > 1) {
-      this.setState({
-        rightVisibility: {visibility: "visible"},
-        leftVisibility: {visibility: "visible"}
-      })
-    }
-  }
-
   slideCarouselLeft() {
     console.log('clicked')
-    if (this.state.data[(this.state.imageIndex - 1)]) {
+    if (this.props.data.GetThisLook[(this.state.imageIndex - 1)]) {
       this.state.position += 100
       this.setState({
         transform: `translate3d(${this.state.position}%, 0px, 0px)`,
         imageIndex: (this.state.imageIndex - 1)
       })
     } else if (this.state.imageIndex === 0) {
-      this.state.position += (-100 * (this.state.data.length - 1))
+      this.state.position += (-100 * (this.props.data.GetThisLook.length - 1))
       this.setState({
         transform: `translate3d(${this.state.position}%, 0px, 0px)`,
-        imageIndex: (this.state.data.length - 1)
+        imageIndex: (this.props.data.GetThisLook.length - 1)
       })
     }
   }
 
   slideCarouselRight() {
-    console.log(this.state.data.length)
-    if (this.state.data[this.state.imageIndex + 1]) {
+    console.log(this.props.data.GetThisLook.length)
+    if (this.props.data.GetThisLook[this.state.imageIndex + 1]) {
       this.state.position -= 100
       this.setState({
         transform: `translate3d(${this.state.position}%, 0px, 0px)`,
         imageIndex: (this.state.imageIndex + 1)
       })
-    } else if (this.state.imageIndex === (this.state.data.length - 1)) {
+    } else if (this.state.imageIndex === (this.props.data.GetThisLook.length - 1)) {
       this.setState({
         transform: `translate3d(0%, 0px, 0px)`,
         imageIndex: 0,
@@ -69,43 +54,46 @@ class SocialMediaModal extends React.Component {
   render() {
     return (
       <div >
-        <div className="SocialMediaModal" style={this.props.clickModal}>
+        <div className="SocialMediaModal" style={this.props.clickModal} >
           <div className="SocialMediaModalContainer">
             <div className="SocialMediaModalImageContainer">
 
-                <button className='SocialMediaModalCarouselLArrow' onClick={this.slideCarouselLeft}>
+                <button className='SocialMediaModalCarouselLArrow' onClick={this.props.modalIndexDown} style={this.props.modalLeftVisibility}>
                   <svg fill="white" stroke="black" height="100%" viewBox="0 0 13 20" width="15"><polygon points="1.7 10 10.2 1.5 11.6 2.9 4.5 10 11.5 17.1 10.1 18.5"></polygon></svg>
                 </button>
 
-              <img className ="SocialMediaModalCarouselImage" src={this.state.data[this.state.bigImageIndex]} />
+              <img className ="SocialMediaModalCarouselImage" src={this.props.data.InstagramImage} />
 
-                <button className='SocialMediaModalCarouselRArrow' onClick={this.slideCarouselRight}>
+                <button className='SocialMediaModalCarouselRArrow' onClick={this.props.modalIndexUp} style={this.props.modalRightVisibility}>
                   <svg fill="white" stroke="black" height="100%" viewBox="0 0 13 20" width="15" ><polygon points="2.9 18.5 1.5 17.1 8.5 10 1.4 2.9 2.8 1.5 11.3 10"></polygon></svg>
                 </button>
 
             </div>
+
             <div className="SocialMediaModalWhitespaceContainer">
-              <div className="SocialMediaModalXBox" onClick={this.props.closeClickModal} >
+              <div className="SocialMediaModalXBox" onClick={() => {
+                this.setState({imageIndex: 0, position: 0, transform: "translate3d(0%, 0px, 0px)"})
+                this.props.closeClickModal()}} >
                 <svg className="Xbox" height="25" viewBox="0 0 18 18" width="25"  ><g fill="blue" fillRule="evenodd" strokeWidth="2" transform="translate(1 1)"><path strokeWidth="3" stroke="rgb(92, 92, 92)" d="M15.6.4L.4 15.6M15.6 15.6L.4.4"></path></g></svg>
               </div>
             <div className="SocialMediaModalHandle">
               <div style={{textIndent: "10%"}}>
-                @lanixfowler
+                @{this.props.data.UserInstagram}
               </div>
             </div>
               <div className="SocialMediaModalGetThisCarousel">
 
-                <button className='SocialMediaModalGetThisLeft' onClick={this.slideCarouselLeft}>
+                <button className='SocialMediaModalGetThisLeft' onClick={this.slideCarouselLeft} style={this.props.smallLeftVisibility}>
                   <svg height="100%" viewBox="0 45 13 20" width="15" ><polygon points="1.7 10 10.2 1.5 11.6 2.9 4.5 10 11.5 17.1 10.1 18.5"></polygon></svg>
                 </button>
 
                 <div className="SocialMediaModalGetThisFrame">
-                  <div className="SocialMediaModalGetThisLook">Get This Look (Item 1 of 2)</div>
-                  <SocialMediaGetThisImageFrame data={this.state.data} transform={this.state.transform}/>
-                  <div className="SocialMediaModalGetThisItemName">Women's Reverse Div in a Div in a Div</div>
+                  <div className="SocialMediaModalGetThisLook">Get This Look (Item {(this.state.imageIndex + 1)} of {(this.props.data.GetThisLook.length)})</div>
+                  <SocialMediaGetThisImageFrame data={this.props.data.GetThisLook} transform={this.state.transform}/>
+
                 </div>
 
-                <button className='SocialMediaModalGetThisRight' onClick={this.slideCarouselRight}>
+                <button className='SocialMediaModalGetThisRight' onClick={this.slideCarouselRight} style={this.props.smallRightVisibility}>
                   <svg height="100%" viewBox="0 45 13 20" width="15"><polygon points="2.9 18.5 1.5 17.1 8.5 10 1.4 2.9 2.8 1.5 11.3 10"></polygon></svg>
                 </button>
 
