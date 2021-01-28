@@ -1,4 +1,5 @@
 const modelSocialMedia = require('../DB/modelSocialMedia.js');
+const mongoose = require('mongoose')
 
 const randomizer = (array) => {
   const output = Math.floor(Math.random() * Math.floor(array.length));
@@ -41,4 +42,7 @@ const socialMediaConstructor = () => {
   return result;
 };
 
-modelSocialMedia.create(socialMediaConstructor());
+modelSocialMedia.create(socialMediaConstructor())
+  .then(response => {
+    mongoose.disconnect()
+  })

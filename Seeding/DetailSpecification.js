@@ -1,4 +1,5 @@
 const modelDetailSpec = require('../DB/modelDetailSpec.js');
+const mongoose = require('mongoose')
 
 const randomizer = (array) => {
   const output = Math.floor(Math.random() * Math.floor(array.length));
@@ -41,4 +42,7 @@ const productDetailConstructor = () => {
   return result;
 };
 
-modelDetailSpec.create(productDetailConstructor());
+modelDetailSpec.create(productDetailConstructor())
+  .then(response => {
+    mongoose.disconnect()
+  })
